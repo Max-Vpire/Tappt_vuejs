@@ -5,7 +5,7 @@ import axios from "axios";
  export default {
    async mounted() {
      this.loading = true
-     await axios.get('http://localhost:3000/books/recomends', {
+     await axios.get('https://tappt-system-api.onrender.com/books/recomends', {
        headers:{
          'content-type': "application/json",
          'accept': "application/json",
@@ -19,7 +19,7 @@ import axios from "axios";
            return e
          })
      this.loading = false
-     await axios.get('http://localhost:3000/auth/user/' + localStorage.getItem('token'))
+     await axios.get('https://tappt-system-api.onrender.com/auth/user/' + localStorage.getItem('token'))
           .then(ref=>{
             this.user = ref.data
             this.loading = false
@@ -32,7 +32,7 @@ import axios from "axios";
    data() {
      return{
         books: [],
-       link:'http://localhost:3000/',
+       link:'https://tappt-system-api.onrender.com/',
        loading: false,
        user:{
         id: "",
@@ -45,7 +45,7 @@ import axios from "axios";
    },
    methods: {
     async SaveOnHistroy(BookId, bookpath) {
-      await axios.post('http://localhost:3000/history/',{
+      await axios.post('https://tappt-system-api.onrender.com/history/',{
         userId: this.user.id,
         bookId: BookId,
       }).then(ref=>{

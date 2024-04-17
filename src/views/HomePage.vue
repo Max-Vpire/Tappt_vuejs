@@ -21,7 +21,7 @@
     },
     async mounted() {
       this.loading = true
-      await axios.get('http://localhost:3000/auth/user/' + localStorage.getItem('token'))
+      await axios.get('https://tappt-system-api.onrender.com/auth/user/' + localStorage.getItem('token'))
           .then(ref=>{
             this.user = ref.data
             this.loading = false

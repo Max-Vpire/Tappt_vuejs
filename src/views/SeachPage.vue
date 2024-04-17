@@ -5,7 +5,7 @@ import router from "@/router";
 export default {
   async mounted() {
     this.loading = true
-    await axios.get('http://localhost:3000/auth/user/' + localStorage.getItem('token'))
+    await axios.get('https://tappt-system-api.onrender.com/auth/user/' + localStorage.getItem('token'))
         .then(ref=>{
           this.user = ref.data
           this.loading = false
@@ -20,14 +20,14 @@ export default {
       query: '',
       books: [],
       loading: false,
-      link:'http://localhost:3000/',
+      link:'https://tappt-system-api.onrender.com',
       notfound: false
     }
   },
   methods:{
     async SearchBooks() {
       this.loading = true
-      await axios.get('http://localhost:3000/books/search/'+ this.query.toLowerCase(),{
+      await axios.get('https://tappt-system-api.onrender.com/books/search/'+ this.query.toLowerCase(),{
         headers:{
           'content-type': "application/json",
           'accept': "application/json",

@@ -20,7 +20,7 @@ export default {
   methods: {
    async Register() {
      this.loading = true
-      await axios.post('http://localhost:3000/users/', this.user)
+      await axios.post('https://tappt-system-api.onrender.com/users/', this.user)
           .then(ref=>{
             this.loading = false
             this.done = true

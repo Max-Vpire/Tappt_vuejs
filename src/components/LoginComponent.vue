@@ -24,7 +24,7 @@
     methods: {
       async Login(){
         this.loading = true
-        await axios.post('http://localhost:3000/auth/login', this.user)
+        await axios.post('https://tappt-system-api.onrender.com/auth/login', this.user)
             .then(ref=>{
               localStorage.setItem('token', ref.data.token)
               this.loading = false
@@ -46,7 +46,7 @@
     },
     async mounted() {
       this.waiting = true
-      await axios.get('http://localhost:3000/auth/user/' + localStorage.getItem('token'))
+      await axios.get('https://tappt-system-api.onrender.com/auth/user/' + localStorage.getItem('token'))
           .then(ref=>{
             router.push('/dashboard')
           })

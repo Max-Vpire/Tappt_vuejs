@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default{
      async mounted() {
-      await axios.get('http://localhost:3000/auth/user/' + localStorage.getItem('token'))
+      await axios.get('https://tappt-system-api.onrender.com/auth/user/' + localStorage.getItem('token'))
           .then(ref=>{
             this.idx = ref.data.id
             console.log(this.idx)
@@ -25,7 +25,7 @@ export default{
     },
     methods: {
       async EditProfile() {
-        await axios.put('http://localhost:3000/auth/edit/' + this.idx,{
+        await axios.put('https://tappt-system-api.onrender.com/auth/edit/' + this.idx,{
           user:{
             name: this.user.name,
             surname: this.user.surname,
